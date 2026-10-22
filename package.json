@@ -1,0 +1,37 @@
+{
+  "name": "dsh-ssh-workspace",
+  "version": "0.1.0-local",
+  "private": true,
+  "type": "module",
+  "description": "Switch a DeepSeek Harness session's workspace tools to an SSH host, like pi-ssh-remote",
+  "license": "MIT",
+  "engines": {
+    "node": "^22.19 || >=24"
+  },
+  "exports": {
+    ".": "./index.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": [
+        "./cordis.patch.yml"
+      ]
+    }
+  },
+  "files": [
+    "index.js",
+    "ssh.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "link-dsh": "node scripts/link-dsh.mjs",
+    "test": "node --test test/*.test.js"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-commands": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-jobs": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.2"
+  }
+}
